@@ -1,4 +1,10 @@
 EligeTuProfe::Application.routes.draw do
+  resources :careers
+
+  resources :subjects
+
+  resources :teachers
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
