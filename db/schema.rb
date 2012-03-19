@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(:version => 20120319000348) do
     t.integer "subject_id"
   end
 
+  create_table "careers_subjects_teachers", :force => true do |t|
+    t.integer "career_id"
+    t.integer "subject_id"
+    t.integer "teacher_id"
+  end
+
   create_table "subjects", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
