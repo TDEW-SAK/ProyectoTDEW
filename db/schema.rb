@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322031550) do
+ActiveRecord::Schema.define(:version => 20120327041653) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -32,10 +32,36 @@ ActiveRecord::Schema.define(:version => 20120322031550) do
     t.integer "subject_id"
   end
 
-  create_table "careers_subjects_teachers", :force => true do |t|
-    t.integer "career_id"
-    t.integer "subject_id"
-    t.integer "teacher_id"
+  create_table "evaluation_details", :force => true do |t|
+    t.decimal  "grade"
+    t.integer  "evaluation_id"
+    t.integer  "item_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "evaluations", :force => true do |t|
+    t.text     "comment"
+    t.integer  "career_id"
+    t.integer  "subject_id"
+    t.integer  "teacher_id"
+    t.integer  "form_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "forms", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.integer  "form_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "subjects", :force => true do |t|
