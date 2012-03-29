@@ -1,1 +1,14 @@
-<%= link_to "Connect With Facebook", "/auth/facebook" %>
+<% content_for :head do %>
+  <% if (rand(1..2) == 1) %>
+    <%= link_to 'Iniciar sesión', "#{root_url}auth/facebook", :rel => "external", "class" => "ui-btn-right", "data-icon" => "check" %>
+  <% else %>
+    <%= "Beinvenido, " + auth.user.name %>
+    <%= link_to 'Cerra sesión', "/logout", "class" => "ui-btn-right", "data-icon" => "delete" %>
+  <% end %>
+<% end %>
+
+<p style="text-align:justify">
+  <p>Bienvenidos a Elige tu profe, en esta página podrás revisar las evaluaciones que los alumnos han hecho a </p>
+  <p> profesores para poder tener un punto de referencia a la hora de elegir el profesor con quien llevar algún curso. </br> </p>
+  <p>Además, también podrás evaluar a los profesores para poder ayudar a otros alumnos con las mismas inquietudes.</p>
+</p>

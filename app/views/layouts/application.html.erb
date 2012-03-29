@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>My Page</title> 
+	<title>Elige tu profe</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -12,12 +12,23 @@
 <div data-role="page">
 
 	<div data-role="header">
-		<h1>Elige Tu Profe</h1>
+		<h1>Elige tu profe</h1>
+    <%= yield :head %>
+    <div data-role="navbar" data-iconpos="left">
+      <ul>
+        <li><a href="#" data-icon="grid">Revisar evaluaciones</a></li>
+        <li><a href="#" data-icon="star" class="ui-btn-active">Evaluar profesores</a></li>
+      </ul>
+    </div><!-- /navbar -->
 	</div><!-- /header -->
 
-	<div data-role="content">	
-		<%= yield %>		
+	<div data-role="content" align="center">
+		<%= yield %>
 	</div><!-- /content -->
+
+  <div data-role="footer" class="footer-docs">
+    <p>&copy; 2012-03 <a href="mailto:kujulius@gmail.com">SAK</a></p>
+  </div><!-- /content -->
 
 </div><!-- /page -->
 
