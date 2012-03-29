@@ -1,9 +1,28 @@
 EligeTuProfe::Application.routes.draw do
+  resources :items
+
+  resources :evaluation_details
+
+  resources :evaluations
+
+  resources :forms
+
+   # get "sessions/new"
+
+   # get "sessions/create"
+
+   # get "sessions/failure"
+
   resources :careers
 
   resources :subjects
 
   resources :teachers
+  
+	get   '/login', :to => 'sessions#new', :as => :login
+	match '/auth/:provider/callback', :to => 'sessions#create'
+	match '/auth/failure', :to => 'sessions#failure'
+  get   '/logout', :to => 'sessions#destroy', :as => :login	
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

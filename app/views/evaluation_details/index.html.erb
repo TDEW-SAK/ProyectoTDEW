@@ -1,0 +1,23 @@
+<h1>Listing evaluation_details</h1>
+
+<table>
+  <tr>
+    <th>Grade</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @evaluation_details.each do |evaluation_detail| %>
+  <tr>
+    <td><%= evaluation_detail.grade %></td>
+    <td><%= link_to 'Show', evaluation_detail %></td>
+    <td><%= link_to 'Edit', edit_evaluation_detail_path(evaluation_detail) %></td>
+    <td><%= link_to 'Destroy', evaluation_detail, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Evaluation detail', new_evaluation_detail_path %>

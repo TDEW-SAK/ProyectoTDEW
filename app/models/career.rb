@@ -1,3 +1,5 @@
 class Career < ActiveRecord::Base
-	has_and_belongs_to_many :subjects
+  has_many :scopes
+  has_many :subjects, :through => :scopes
+  has_many :teachers, :through => :scopes
 end
