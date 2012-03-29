@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(:version => 20120329020538) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "careers_subjects", :force => true do |t|
+    t.integer "career_id"
+    t.integer "subject_id"
+  end
+
+  create_table "careers_subjects_teachers", :force => true do |t|
+    t.integer "career_id"
+    t.integer "subject_id"
+    t.integer "teacher_id"
+  end
+
   create_table "evaluation_details", :force => true do |t|
     t.decimal  "grade"
     t.integer  "evaluation_id"
@@ -70,6 +81,11 @@ ActiveRecord::Schema.define(:version => 20120329020538) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "subjects_teachers", :force => true do |t|
+    t.integer "subject_id"
+    t.integer "teacher_id"
   end
 
   create_table "teachers", :force => true do |t|
