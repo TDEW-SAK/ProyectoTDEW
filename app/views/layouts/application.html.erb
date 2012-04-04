@@ -13,13 +13,30 @@
 
 	<div data-role="header">
 		<h1>Elige tu profe</h1>
-    <%= yield :head %>
-    <div data-role="navbar" data-iconpos="left">
+    <% if (session[:user_id] == nil) %>
+      <%= link_to 'Iniciar sesión', "#{root_url}auth/facebook", :rel => "external", "class" => "ui-btn-right", "data-icon" => "check" %>
+    <% else %>
+      <%= link_to 'Cerrar sesión', "/logout", "class" => "ui-btn-right", "data-icon" => "delete", "data-iconpos" => "right"%>
+    <% end %>
+    <!--<div data-role="navbar" data-iconpos="left">
       <ul>
         <li><a href="#" data-icon="grid">Revisar evaluaciones</a></li>
         <li><a href="#" data-icon="star" class="ui-btn-active">Evaluar profesores</a></li>
       </ul>
-    </div><!-- /navbar -->
+    </div>--><!-- /navbar -->
+    <div class="ui-body-a ui-body">
+      <% if (session[:user_id] != nil) %>
+        <span>
+            <%= "Bienvenido(a), " + User.find(session[:user_id]).name %>
+        </span>
+      <% end %>
+      <div data-role="navbar" data-iconpos="left">
+        <ul>
+          <li><a href="#" data-icon="grid">Revisar evaluaciones</a></li>
+          <li><a href="#" data-icon="star">Evaluar profesores</a></li>
+        </ul>
+      </div><!-- /navbar -->
+    </div>
 	</div><!-- /header -->
 
 	<div data-role="content" align="center">
