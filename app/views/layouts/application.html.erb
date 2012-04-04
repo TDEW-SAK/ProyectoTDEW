@@ -6,13 +6,6 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
-
-	<%= javascript_include_tag "application" %>
-	<%= yield :javascript_includes %>
-
-	<!--  <script type="text/javascript" src="../app/assets/javascripts/jscharts.js"></script> -->
-
-
 </head> 
 <body> 
 
@@ -20,13 +13,30 @@
 
 	<div data-role="header">
 		<h1>Elige tu profe</h1>
-    <%= yield :head %>
-    <div data-role="navbar" data-iconpos="left">
+    <% if (session[:user_id] == nil) %>
+      <%= link_to 'Iniciar sesión', "#{root_url}auth/facebook", :rel => "external", "class" => "ui-btn-right", "data-icon" => "check" %>
+    <% else %>
+      <%= link_to 'Cerrar sesión', "/logout", "class" => "ui-btn-right", "data-icon" => "delete", "data-iconpos" => "right"%>
+    <% end %>
+    <!--<div data-role="navbar" data-iconpos="left">
       <ul>
-        <li><a href="/evaluations" data-icon="grid">Revisar evaluaciones</a></li>
-        <li><a href="/evaluations/new" data-icon="star" class="ui-btn-active">Evaluar profesores</a></li>
+        <li><a href="#" data-icon="grid">Resultados</a></li>
+        <li><a href="#" data-icon="star" class="ui-btn-active">Evaluar</a></li>
       </ul>
-    </div><!-- /navbar -->
+    </div>--><!-- /navbar -->
+    <div class="ui-body-a ui-body">
+      <% if (session[:user_id] != nil) %>
+        <span>
+            <%= "Bienvenido(a), " + User.find(session[:user_id]).name %>
+        </span>
+      <% end %>
+      <div data-role="navbar" data-iconpos="left">
+        <ul>
+          <li><a href="#" data-icon="grid">Resultados</a></li>
+          <li><a href="#" data-icon="star">Evaluar</a></li>
+        </ul>
+      </div><!-- /navbar -->
+    </div>
 	</div><!-- /header -->
 
 	<div data-role="content" align="center">

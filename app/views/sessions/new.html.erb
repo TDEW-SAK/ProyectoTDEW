@@ -1,17 +1,18 @@
 <% content_for :head do %>
-  <% if not session[:user_id] %>
-    <%= link_to 'Iniciar sesión', "#{root_url}auth/facebook", :rel => "external", "class" => "ui-btn-right", "data-icon" => "check" %>
-  <% else %>    
-    <%= link_to 'Cerra sesión', "#{root_url}/logout", "class" => "ui-btn-right", "data-icon" => "delete" %>
-  <% end %>
 <% end %>
-
-
-Hola <%=  session['name']  %> !
-
-
+<!--
 <p style="text-align:justify">
   <p>Bienvenidos a Elige tu profe, en esta página podrás revisar las evaluaciones que los alumnos han hecho a </p>
   <p> profesores para poder tener un punto de referencia a la hora de elegir el profesor con quien llevar algún curso. </br> </p>
   <p>Además, también podrás evaluar a los profesores para poder ayudar a otros alumnos con las mismas inquietudes.</p>
 </p>
+-->
+<p style="text-align:justify">
+  <p>Ùltimas evaluaciones realizadas:</p>
+</p>
+<ul data-role="listview" data-theme="g" data-filter="true" >
+	<li><a href="Lennon.html">Lennon Shimokawa</a><span class="ui-li-count">12</span></li>
+	<li><a href="Lgarcia.html">Luis García</a><span class="ui-li-count">5</span></li>
+	<li><a href="Ymotta.html">Yana Motta</a><span class="ui-li-count">7</span></li>
+	<li><a href="Milkito.html">Milkito</a><span class="ui-li-count">175</span></li>
+</ul>

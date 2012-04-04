@@ -1,66 +1,13 @@
-<h1>Resultados de la Evaluación</h1>
+<h1>Listing evaluations</h1>
 
 <table>
   <tr>
-    <td>
-      Profesor:
-    </td>
-    <td>
-      Pedro Urrutia
-    </td>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
-  <tr>
-    <td>
-      Curso:
-    </td>
-    <td>
-      Matemática III
-    </td>  
-  </tr>
-</table>
 
-<br />
-
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "jscharts.js" %>
-<% end %>
-
-<div id="graph">Loading graph...</div>
-
-<script type="text/javascript">
-  var myData = new Array(['Muy Bueno', 44], ['Bueno', 25], ['Regular', 5], ['Malo', 3]);
-  var colors = ['#C40000', '#750303', '#F9ECA2', '#FA9000'];
-  var myChart = new JSChart('graph', 'pie');
-  myChart.setDataArray(myData);
-  myChart.colorizePie(colors);
-  myChart.setTitle('Cantidad de votos por tipo (%)');
-  myChart.setTitleColor('#8E8E8E');
-  myChart.setTitleFontSize(11);
-  myChart.setTextPaddingTop(30);
-  myChart.setSize(616, 321);
-  myChart.setPiePosition(308, 170);
-  myChart.setPieRadius(85);
-  myChart.setPieUnitsColor('#555');
-  myChart.draw();
-</script>
-
-<div style="width:700px;" >
-
-  Comentarios de los Ex-alumnos:
-
-  <div style="width:700px; margin:15px 15px 15px 15px;">
-    <input readonly="readonly" type="text" value="Muy veloz al corregir y puntual a la hora de llegar. Recomendado" />
-  </div>
-  <div style="width:700px; margin:15px 15px 15px 15px;">
-    <input readonly="readonly" type="text" value="Buena metodología para enseñar. Sin embargo, la currícula del curso no es tan buena." />
-  </div>
-  <div style="width:700px; margin:15px 15px 15px 15px;">
-    <input readonly="readonly" type="text" value="No me gusto, no tiene paciencia para gente poco hábil. No lo recomiendo." />
-  </div>
-</div>
-
-
-<!--
 <% @evaluations.each do |evaluation| %>
   <tr>
     <td><%= evaluation.comment %></td>
@@ -69,14 +16,8 @@
     <td><%= link_to 'Destroy', evaluation, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
-
--->
-
-
-
+</table>
 
 <br />
 
-
-<!--
-<%= link_to 'New Evaluation', new_evaluation_path %>  -->
+<%= link_to 'New Evaluation', new_evaluation_path %>

@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20120329020538) do
 
   create_table "evaluations", :force => true do |t|
     t.text     "comment"
-    t.integer  "scope_id"
+    t.integer  "teacher_id"
     t.integer  "user_id"
     t.integer  "form_id"
     t.datetime "created_at", :null => false
