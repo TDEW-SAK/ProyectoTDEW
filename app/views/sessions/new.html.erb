@@ -2,7 +2,7 @@
   <% if (rand(1..2) == 1) %>
     <%= link_to 'Iniciar sesión', "#{root_url}auth/facebook", :rel => "external", "class" => "ui-btn-right", "data-icon" => "check" %>
   <% else %>
-    <%= "Beinvenido, " + auth.user.name %>
+    <%= "Bienvenido, " + User.find(session[:user_id]).name %>
     <%= link_to 'Cerra sesión', "/logout", "class" => "ui-btn-right", "data-icon" => "delete" %>
   <% end %>
 <% end %>

@@ -12,8 +12,6 @@ EligeTuProfe::Application.routes.draw do
 
    # get "sessions/failure"
 
-  resources :careers
-  resources :subjects
   resources :teachers
   
 	get   '/login', :to => 'sessions#new', :as => :login
