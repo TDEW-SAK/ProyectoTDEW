@@ -1,5 +1,5 @@
 EligeTuProfe::Application.routes.draw do
-  root :to => "sessions#new"
+  root :to => "results#index"
 
   resources :items
   resources :evaluation_details
@@ -12,12 +12,15 @@ EligeTuProfe::Application.routes.draw do
 
    # get "sessions/failure"
 
-  resources :teachers
+   match '/results', :to => 'results#index'
+   match '/evaluate', :to => 'evaluations#new'
+
+    resources :teachers
   
-	get   '/login', :to => 'sessions#new', :as => :login
-	match '/auth/:provider/callback', :to => 'sessions#create'
-	match '/auth/failure', :to => 'sessions#failure'
-    get   '/logout', :to => 'sessions#destroy', :as => :login	
+	 get   '/login', :to => 'sessions#new', :as => :login
+	 match '/auth/:provider/callback', :to => 'sessions#create'
+	 match '/auth/failure', :to => 'sessions#failure'
+   get   '/logout', :to => 'sessions#destroy', :as => :login	
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -6,13 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Carreras
-c = Career.create(name: 'Ingenieroa de Sistemas - EPE')
 t = Teacher.create(names: 'YAMIL', last_name: 'RAMOS', second_last_name: 'GARCIA')
 t2 = Teacher.create(names: 'HECTOR EDUARDO', last_name: 'MENDIVIL', second_last_name: 'RIVAS')
-s = Subject.create(name: 'Gestion de la Calidad de Software')
-c.subjects << s
-c.teachers << t
-c.teachers << t2
+
 
 f = Form.create(name: 'Formulario de prueba 1')
 i1 = Item.create(name: 'Pregunta 1?', category: 'M')

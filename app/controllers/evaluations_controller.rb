@@ -1,4 +1,12 @@
 class EvaluationsController < ApplicationController
+  before_filter :check_auth, :only => [:new]
+
+  def check_auth
+    if session[:user_id] == nil or session[:user_id].empty?
+      redirect_to("/results", :notice => "Necesitas iniciar sesion para poder evaluar!!")
+    end
+  end
+
   # GET /evaluations
   # GET /evaluations.json
   def index

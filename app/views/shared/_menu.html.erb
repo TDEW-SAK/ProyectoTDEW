@@ -1,0 +1,13 @@
+<div class="ui-body-a ui-body">
+	<% if (session[:user_id] != nil) %>
+	  <span>
+	      <%= "Bienvenido(a), " + User.find(session[:user_id]).name %>
+	  </span>
+	<% end %>
+	<div data-role="navbar" data-iconpos="left">
+	  <ul>
+	    <li> <%= link_to 'Resultados', "/results", "data-icon" => "grid", "data-iconpos" => "left"%></li>
+	    <li> <%= link_to 'Evaluar', "/evaluate", "data-icon" => "star", "data-iconpos" => "left"%></li>
+	  </ul>
+	</div><!-- /navbar -->
+</div>

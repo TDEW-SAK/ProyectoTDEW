@@ -1,0 +1,9 @@
+<div data-role="header">
+	<h1>Elige tu profe</h1>
+  <% if (session[:user_id] == nil) %>
+    <%= link_to 'Iniciar sesión', "#{root_url}auth/facebook", :rel => "external", "class" => "ui-btn-right", "data-icon" => "check" %>
+  <% else %>
+    <%= link_to 'Cerrar sesión', "/logout", "class" => "ui-btn-right", "data-icon" => "delete", "data-iconpos" => "right"%>
+  <% end %>
+  <%= render "shared/menu" %>
+</div><!-- /header -->

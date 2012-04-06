@@ -11,41 +11,16 @@
 
 <div data-role="page">
 
-	<div data-role="header">
-		<h1>Elige tu profe</h1>
-    <% if (session[:user_id] == nil) %>
-      <%= link_to 'Iniciar sesión', "#{root_url}auth/facebook", :rel => "external", "class" => "ui-btn-right", "data-icon" => "check" %>
-    <% else %>
-      <%= link_to 'Cerrar sesión', "/logout", "class" => "ui-btn-right", "data-icon" => "delete", "data-iconpos" => "right"%>
-    <% end %>
-    <!--<div data-role="navbar" data-iconpos="left">
-      <ul>
-        <li><a href="#" data-icon="grid">Resultados</a></li>
-        <li><a href="#" data-icon="star" class="ui-btn-active">Evaluar</a></li>
-      </ul>
-    </div>--><!-- /navbar -->
-    <div class="ui-body-a ui-body">
-      <% if (session[:user_id] != nil) %>
-        <span>
-            <%= "Bienvenido(a), " + User.find(session[:user_id]).name %>
-        </span>
-      <% end %>
-      <div data-role="navbar" data-iconpos="left">
-        <ul>
-          <li><a href="#" data-icon="grid">Resultados</a></li>
-          <li><a href="#" data-icon="star">Evaluar</a></li>
-        </ul>
-      </div><!-- /navbar -->
-    </div>
-	</div><!-- /header -->
+	<%= render "shared/header" %>
 
 	<div data-role="content" align="center">
+    <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end %>
 		<%= yield %>
 	</div><!-- /content -->
 
-  <div data-role="footer" class="footer-docs">
-    <p>&copy; 2012-03 <a href="mailto:kujulius@gmail.com">SAK</a></p>
-  </div><!-- /content -->
+  <%= render "shared/footer" %>
 
 </div><!-- /page -->
 
