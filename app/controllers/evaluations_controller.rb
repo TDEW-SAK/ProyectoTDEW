@@ -2,7 +2,7 @@ class EvaluationsController < ApplicationController
   before_filter :check_auth, :only => [:new]
 
   def check_auth
-    if session[:user_id] == nil or session[:user_id].empty?
+    if session[:user_id] == nil or session[:user_id].to_s.empty?
       redirect_to(:root, :notice => "Necesitas iniciar sesion para poder evaluar!!")
     end
   end

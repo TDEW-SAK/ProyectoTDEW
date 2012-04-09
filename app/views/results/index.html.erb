@@ -1,18 +1,15 @@
 <p style="text-align:justify">
-  <p>Últimas evaluaciones relizadas</p>
+  <p>Selecciona un profesor...</p>
 </p>
 
-<% @results.each do |result| %>
+<% if @teachers.empty? %>
+  <em>No hay profesores registrados</em>
+<% else %>
   <ul data-role="listview" data-theme="g" data-filter="true" >
-    <li>
-      <%= link_to result.teacher.names + " " + result.teacher.last_nam + " " + result.teacher.second_last_name, "#" %>
-      <span class="ui-li-count">
-      <%= result.teacher.evaluations.count %>
-      </span>
-    </li>
+    <% @teachers.each do |teacher| %>
+        <li>
+          <%= link_to teacher.names + " " + teacher.last_name + " " + teacher.second_last_name, "#" %>
+        </li>
+    <% end %>
   </ul>
-<% end %>
-
-<% if @results.empty? %>
-  <em>No se ha realizado ninguna evaluación</em>
 <% end %>

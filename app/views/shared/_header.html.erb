@@ -1,5 +1,6 @@
 <div data-role="header">
-	<h1>Elige tu profe</h1>
+    <%= link_to '', "#{root_url}", :rel => "external", "class" => "ui-btn-left", "data-icon" => "home", "data-iconpos" => "notext" %>
+    <h1>Elige tu profe</h1>
   <% if (session[:user_id] == nil) %>
     <%= link_to 'Iniciar sesión', "#{root_url}auth/facebook", :rel => "external", "class" => "ui-btn-right", "data-icon" => "check" %>
   <% else %>
