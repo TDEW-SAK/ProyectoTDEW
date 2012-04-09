@@ -3,7 +3,7 @@ class EvaluationsController < ApplicationController
 
   def check_auth
     if session[:user_id] == nil or session[:user_id].empty?
-      redirect_to("/results", :notice => "Necesitas iniciar sesion para poder evaluar!!")
+      redirect_to(:root, :notice => "Necesitas iniciar sesion para poder evaluar!!")
     end
   end
 
