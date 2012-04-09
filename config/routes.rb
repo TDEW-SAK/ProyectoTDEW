@@ -1,5 +1,5 @@
 EligeTuProfe::Application.routes.draw do
-  root :to => "results#index"
+  root :to => "results#last"
 
   resources :items
   resources :evaluation_details
@@ -13,6 +13,7 @@ EligeTuProfe::Application.routes.draw do
    # get "sessions/failure"
 
    match '/results', :to => 'results#index'
+   match '/last_results', :to => 'results#last'
    match '/evaluate', :to => 'evaluations#new'
 
     resources :teachers

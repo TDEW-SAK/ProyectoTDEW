@@ -8,6 +8,9 @@
 # Carreras
 t = Teacher.create(names: 'YAMIL', last_name: 'RAMOS', second_last_name: 'GARCIA')
 t2 = Teacher.create(names: 'HECTOR EDUARDO', last_name: 'MENDIVIL', second_last_name: 'RIVAS')
+t3 = Teacher.create(names: 'JULIUS ERNESTO', last_name: 'KU', second_last_name: 'LAM')
+t4 = Teacher.create(names: 'LUIS', last_name: 'BENDEZU', second_last_name: 'LOAYZA')
+t5 = Teacher.create(names: 'OSCAR', last_name: 'RAMOS', second_last_name: 'PENNY')
 
 f = Form.create(name: 'Evaluacion General')
 i1 = Item.create(name: 'Siempre llego puntualmente?', category: 'M')
