@@ -3,7 +3,11 @@ class ResultsController < ApplicationController
   def index
     #@teachers = Teacher.joins(:evaluations).select("distinct(teachers.id)")
 
-    @teachers = Teacher.find(:all, :order => "names ASC, last_name ASC, second_last_name ASC")
+    #@teachers = Teacher.find(:all, :order => "names ASC, last_name ASC, second_last_name ASC")
+    @teachers = Teacher.all(  :select => "teachers.id, teachers.names, teachers.last_name, teachers.second_last_name, count(evaluations.id) as count_evaluations",
+                              :joins => "LEFT JOIN evaluations on evaluations.teacher_id = teachers.id",
+                              :group => "teachers.id, teachers.names, teachers.last_name, teachers.second_last_name",
+                              :order => "2 ASC, 3 ASC, 4 ASC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,11 +16,12 @@ class ResultsController < ApplicationController
   end
 
   def last
-    @results = Evaluation.find(:all, :order => "created_at DESC")
 
-    if @results.count > 0
-      @results.select(:id).uniq.limit(5)
-    end
+    @results = Teacher.all( :select => "teachers.id, teachers.names, teachers.last_name, teachers.second_last_name, count(evaluations.id) as count_evaluations", 
+                            :joins => :evaluations, 
+                            :group => "teachers.id, teachers.names, teachers.last_name, teachers.second_last_name", 
+                            :limit => 5, 
+                            :order => "evaluations.created_at DESC, 2 ASC, 3 ASC, 4 ASC")
 
     respond_to do |format|
       format.html # index.html.erb

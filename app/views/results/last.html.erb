@@ -6,11 +6,11 @@
   <em>No se ha realizado ninguna evaluación</em>
 <% else %>
   <ul data-role="listview" data-theme="g" data-filter="true" >
-    <% @results.each do |result| %>
+    <% @results.each do |teacher| %>
       <li>
-        <%= link_to result.teacher.names + " " + result.teacher.last_nam + " " + result.teacher.second_last_name, "#" %>
+        <%= link_to teacher.names + " " + teacher.last_name + " " + teacher.second_last_name, "#" %>
         <span class="ui-li-count">
-        <%= result.teacher.evaluations.count %>
+        <%= teacher.count_evaluations %>
         </span>
       </li>
     <% end %>

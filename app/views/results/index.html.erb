@@ -9,6 +9,9 @@
     <% @teachers.each do |teacher| %>
         <li>
           <%= link_to teacher.names + " " + teacher.last_name + " " + teacher.second_last_name, "#" %>
+          <span class="ui-li-count">
+	        <%= teacher.count_evaluations %>
+	      </span>
         </li>
     <% end %>
   </ul>
