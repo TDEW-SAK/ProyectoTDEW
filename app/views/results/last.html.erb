@@ -8,7 +8,7 @@
   <ul data-role="listview" data-theme="g" data-filter="true" >
     <% @results.each do |teacher| %>
       <li>
-        <%= link_to teacher.names + " " + teacher.last_name + " " + teacher.second_last_name, "#" %>
+        <%= link_to teacher.names + " " + teacher.last_name + " " + teacher.second_last_name, details_path(teacher.id) %>
         <span class="ui-li-count">
         <%= teacher.count_evaluations %>
         </span>

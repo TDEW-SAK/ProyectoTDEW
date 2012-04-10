@@ -1,0 +1,28 @@
+<p>
+  <h2>Resultados del profesor: </h2>
+  <%= @teacher.names + ' ' + @teacher.last_name + ' ' + @teacher.second_last_name%>
+  </br></br>
+  Cantidad de evaluaciones: <%= @teacher.evaluations.count%>
+</p>
+</br>
+<% @questions.each do |question| %>
+    <p>
+      Pregunta: <%= question.name %>
+    </p>
+      
+      <div data-role="fieldcontain">
+        <label for="slider">Puntaje promedio: </label>
+        <input type="range" name="slider" id="slider" value='<%= question.avg_grade%>' min="1" max="4" data-highlight="true" data-mini="true" />
+        <span class="slider-label left">low</span>
+        <span class="slider-label right">high</span>
+      </div>
+<% end %>
+
+<p>Comentarios: </p>
+<% @comments.each do |comment| %>
+  <div data-role="fieldcontain">
+    <textarea name="textarea" id="textarea-a" enabled="false">
+      <%= comment.comment %>
+    </textarea>
+  </div>
+<% end %>

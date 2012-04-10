@@ -74,27 +74,27 @@ e2.form = f
 e2.user = u2
 e2.save
 
-ed6 = EvaluationDetail.create(grade: 5)
+ed6 = EvaluationDetail.create(grade: 4)
 ed6.item = i1
 ed6.evaluation = e2
 ed6.save
 
-ed7 = EvaluationDetail.create(grade: 5)
+ed7 = EvaluationDetail.create(grade: 4)
 ed7.item = i2
 ed7.evaluation = e2
 ed7.save
 
-ed8 = EvaluationDetail.create(grade: 5)
+ed8 = EvaluationDetail.create(grade: 4)
 ed8.item = i3
 ed8.evaluation = e2
 ed8.save
 
-ed9 = EvaluationDetail.create(grade: 5)
+ed9 = EvaluationDetail.create(grade: 4)
 ed9.item = i4
 ed9.evaluation = e2
 ed9.save
 
-ed10 = EvaluationDetail.create(grade: 5)
+ed10 = EvaluationDetail.create(grade: 4)
 ed10.item = i5
 ed10.evaluation = e2
 ed10.save
@@ -142,27 +142,27 @@ e4.form = f
 e4.user = u4
 e4.save
 
-ed16 = EvaluationDetail.create(grade: 5)
+ed16 = EvaluationDetail.create(grade: 4)
 ed16.item = i1
 ed16.evaluation = e4
 ed16.save
 
-ed17 = EvaluationDetail.create(grade: 5)
+ed17 = EvaluationDetail.create(grade: 4)
 ed17.item = i2
 ed17.evaluation = e4
 ed17.save
 
-ed18 = EvaluationDetail.create(grade: 5)
+ed18 = EvaluationDetail.create(grade: 4)
 ed18.item = i3
 ed18.evaluation = e4
 ed18.save
 
-ed19 = EvaluationDetail.create(grade: 5)
+ed19 = EvaluationDetail.create(grade: 4)
 ed19.item = i4
 ed19.evaluation = e4
 ed19.save
 
-ed20 = EvaluationDetail.create(grade: 5)
+ed20 = EvaluationDetail.create(grade: 4)
 ed20.item = i5
 ed20.evaluation = e4
 ed20.save
@@ -180,22 +180,22 @@ ed21.item = i1
 ed21.evaluation = e5
 ed21.save
 
-ed22 = EvaluationDetail.create(grade: 5)
+ed22 = EvaluationDetail.create(grade: 4)
 ed22.item = i2
 ed22.evaluation = e5
 ed22.save
 
-ed23 = EvaluationDetail.create(grade: 5)
+ed23 = EvaluationDetail.create(grade: 4)
 ed23.item = i3
 ed23.evaluation = e5
 ed23.save
 
-ed24 = EvaluationDetail.create(grade: 5)
+ed24 = EvaluationDetail.create(grade: 4)
 ed24.item = i4
 ed24.evaluation = e5
 ed24.save
 
-ed25 = EvaluationDetail.create(grade: 5)
+ed25 = EvaluationDetail.create(grade: 4)
 ed25.item = i5
 ed25.evaluation = e5
 ed25.save
