@@ -1,4 +1,55 @@
-<h1>New evaluation</h1>
+<h1>Nueva Evaluaci&oacuten</h1>
+
+<table>
+    <tr>
+        <td><b>Profesor:</b></td> <td>Lennon Shimokawa</td>
+    </tr>
+<!--
+<tr>
+    <td><b>Curso: </b></td>  <td>Investigaci&oacuten Operacional</td>
+</tr>
+-->
+    <tr>
+        <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="2">Por favor responder las siguientes preguntas en una escala del 1 al 5, donde 1 es "Malo" y 5 es "Excelente"</td>
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;</td>
+    </tr>
+</table>
+
+<table>
+   
+<% Item.all.each do |item| %>
+    <tr>
+        <td>
+            <b><%= item.name %></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
+                <input type="radio" name="radio-choice-1" id="radio-mini-1" value="1" />
+                <label for="radio-mini-1">1</label>
+
+                <input type="radio" name="radio-choice-1" id="radio-mini-2" value="2" />
+                <label for="radio-mini-2">2</label>
+
+                <input type="radio" name="radio-choice-1" id="radio-mini-3" value="3" />
+                <label for="radio-mini-3">3</label>
+
+                <input type="radio" name="radio-choice-1" id="radio-mini-4" value="4" />
+                <label for="radio-mini-4">4</label>
+
+                <input type="radio" name="radio-choice-1" id="radio-mini-5" value="5" checked="checked" />
+                <label for="radio-mini-5">5</label>
+            </fieldset>    
+        </td>
+    </tr>
+<% end %>
+</table>
 
 <%= render 'form' %>
 
