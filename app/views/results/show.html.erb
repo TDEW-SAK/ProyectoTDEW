@@ -1,7 +1,12 @@
+<%= javascript_include_tag "results.js" %>
+
+<%= stylesheet_link_tag "results.css" %>
+
 <p>
   <h2>Resultados del profesor: </h2>
-  <%= @teacher.names + ' ' + @teacher.last_name + ' ' + @teacher.second_last_name%>
-  </br></br>
+  <h3>
+    <%= @teacher.names + ' ' + @teacher.last_name + ' ' + @teacher.second_last_name%>
+  </h3>
   Cantidad de evaluaciones: <%= @teacher.evaluations.count%>
 </p>
 </br>
@@ -11,17 +16,18 @@
     </p>
       
       <div data-role="fieldcontain">
-        <label for="slider">Puntaje promedio: </label>
-        <input type="range" name="slider" id="slider" value='<%= question.avg_grade%>' min="1" max="4" data-highlight="true" data-mini="true" />
-        <span class="slider-label left">low</span>
-        <span class="slider-label right">high</span>
+        <label for="slider">Puntaje promedio: <%= question.avg_grade.to_s%>
+          <span class="slider-label left">1</span>
+          <span class="slider-label right">4</span>
+        </label>
+        <input type="range" class="slider" name="slider" id="slider" value='<%= question.avg_grade%>' min="1" max="4" data-highlight="true" data-mini="true" data-theme="a" data-track-theme="b"/>
       </div>
 <% end %>
 
 <p>Comentarios: </p>
 <% @comments.each do |comment| %>
   <div data-role="fieldcontain">
-    <textarea name="textarea" id="textarea-a" enabled="false">
+    <textarea name="textarea" id="textarea-a" enabled="false" readonly="readonly">
       <%= comment.comment %>
     </textarea>
   </div>
