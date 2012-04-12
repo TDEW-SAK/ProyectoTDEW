@@ -1,10 +1,10 @@
 EligeTuProfe::Application.routes.draw do
   root :to => "results#last"
 
-  resources :items
+#  resources :items
 #  resources :evaluation_details
 #  resources :evaluations
-  resources :forms
+#  resources :forms
 
    # get "sessions/new"
 
@@ -15,11 +15,13 @@ EligeTuProfe::Application.routes.draw do
    match '/results', :to => 'results#index'
    match '/results/:id', :to => 'results#show', :as => 'details'
    match '/last_results', :to => 'results#last'
+   match '/evaluations', :to => 'results#last'
    match '/evaluate', :to => 'evaluations#index'
    match 'evaluations/:teacher_id', :to => 'evaluations#new', :as => 'evaluate'
+   match '/evaluations/:evaluation/save', :to => 'evaluations#create', :as => 'save_evaluation'
 
 
-   resources :teachers
+#   resources :teachers
   
 	 get   '/login', :to => 'sessions#new', :as => :login
 	 match '/auth/:provider/callback', :to => 'sessions#create'

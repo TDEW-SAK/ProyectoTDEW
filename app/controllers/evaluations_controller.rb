@@ -1,9 +1,16 @@
 class EvaluationsController < ApplicationController
-  before_filter :check_auth, :only => [:new]
+  before_filter :check_auth, :only => [:index]
+  before_filter :check_vote, :only => [:new]
 
   def check_auth
     if session[:user_id] == nil or session[:user_id].to_s.empty?
-      redirect_to(:root, :notice => "Necesitas iniciar sesion para poder evaluar!!")
+      redirect_to(:back, :notice => "Necesitas iniciar sesion para poder evaluar!!")
+    end
+  end
+
+  def check_vote
+    if Evaluation.all(:conditions => { :user_id => session[:user_id], :teacher_id => params[:teacher_id]}).count > 0
+      redirect_to(:back, :notice => "Ya evaluaste a este profesor!!")
     end
   end
 
@@ -32,27 +39,22 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   # GET /evaluations/new.json
   def new
-#    @teacher    = Teacher.all(:conditions => { :id => params[:teacher_id] }).first
     @teacher    = Teacher.find(params[:teacher_id])
     @evaluation = Evaluation.new
-    
+    @evaluation.teacher = @teacher
+    @evaluation.form = Form.first
+
+    @evaluation.form.items.all.each do |item|
+      evd = EvaluationDetail.new  
+      evd.item = item
+      @evaluation.evaluation_details << evd
+      evd = nil
+    end
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @evaluation }
     end
-
-    @ev1 = EvaluationDetail.new
-    @ev2 = EvaluationDetail.new
-    @ev3 = EvaluationDetail.new
-    @ev4 = EvaluationDetail.new
-    @ev5 = EvaluationDetail.new
-
-    @evaluation.evaluationdetails << @ev1
-    @evaluation.evaluationdetails << @ev2
-    @evaluation.evaluationdetails << @ev3
-    @evaluation.evaluationdetails << @ev4
-    @evaluation.evaluationdetails << @ev5
   end
 
   # GET /evaluations/1/edit
@@ -65,10 +67,17 @@ class EvaluationsController < ApplicationController
   def create
     @evaluation = Evaluation.new(params[:evaluation])
 
+    @evaluation.save
+
+    @evaluation.evaluation_details.all.each do |detail|
+      detail.save
+    end
+
     respond_to do |format|
       if @evaluation.save
-        format.html { redirect_to @evaluation, notice: 'Evaluation was successfully created.' }
-        format.json { render json: @evaluation, status: :created, location: @evaluation }
+        #redirect_to(:root, :notice => "Gracias por registrar tu evaluacion!!")
+        format.html { redirect_to details_path(@evaluation.teacher.id), notice: 'Gracias por registrar tu evaluacion!!' }
+        #format.json { render json: @evaluation, status: :created, location: @evaluation }
       else
         format.html { render action: "new" }
         format.json { render json: @evaluation.errors, status: :unprocessable_entity }

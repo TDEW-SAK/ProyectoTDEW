@@ -1,5 +1,16 @@
 <%= form_for @evaluation do |e| %>
   <h1>Nueva Evaluaci&oacuten</h1>
+  <% if @evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@evaluation.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
+
+      <ul>
+      <% @evaluation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <table>
     <tr>
@@ -17,42 +28,48 @@
     </tr>
   </table>
 
-  <table>   
-    <% Item.all.each do |item| %>
+  <table>
+    <% puts "GARCA DE MIERDA: " + @evaluation.evaluation_details.count.to_s %>   
+    <% @evaluation.evaluation_details.each do |edet| %>
         <tr>
             <td>
-                <b><%= item.id.to_s + '. ' +  item.name %></b>
+                <b><%= edet.item.id.to_s + '. ' +  edet.item.name %></b>
             </td>
         </tr>
         <tr>
             <td>
-              <%= e.fields_for :evaluation_details do |d| %>
-                <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
-                    <%= d.radio_button(:grade, "1") %>
-                    <%= label_tag(:1, "1") %>
+              <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
+                <%= e.fields_for :evaluation_details, edet do |d| %>
+                  
+                      <%= d.radio_button(:grade, "1") %>
+                      <%= d.label(:grade_1, "1") %>
 
-                    <%= d.radio_button(:grade, "2") %>
-                    <%= label_tag(:2, "2") %>
+                      <%= d.radio_button(:grade, "2") %>
+                      <%= d.label(:grade_2, "2") %>
 
-                    <%= d.radio_button(:grade, "3") %>
-                    <%= label_tag(:3, "3") %>
+                      <%= d.radio_button(:grade, "3") %>
+                      <%= d.label(:grade_3, "3") %>
 
-                    <%= d.radio_button(:grade, "4") %>
-                    <%= label_tag(:4, "4") %>
-
+                      <%= d.radio_button(:grade, "4") %>
+                      <%= d.label(:grade_4, "4") %>
+                <% end %>
                 </fieldset>
-              <% end %>
             </td>
         </tr>
     <% end %>
 
   <tr>
     <td>
+      Comentario: 
       <div data-role="fieldcontain">
           <%= e.text_area :comment %>
       </div>
     </td>
   </tr>
   </table>
+
+  <div class="actions">
+    <%= e.submit :Evaluar %>
+  </div>
 <% end %>
 
