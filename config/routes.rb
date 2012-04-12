@@ -13,7 +13,7 @@ EligeTuProfe::Application.routes.draw do
    # get "sessions/failure"
 
    match '/results', :to => 'results#index'
-   match 'results/:id', :to => 'results#show', :as => 'details'
+   match '/results/:id', :to => 'results#show', :as => 'details'
    match '/last_results', :to => 'results#last'
    match '/evaluate', :to => 'evaluations#new'
 

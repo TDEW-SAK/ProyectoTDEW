@@ -8,19 +8,18 @@
   Cantidad de evaluaciones: <%= @teacher.evaluations.count%>
 </p>
 </br>
+
 <% @questions.each do |question| %>
     <p>
       Pregunta: <%= question.name %>
     </p>
-      
       <div data-role="fieldcontain">
-        <label for="slider">Puntaje promedio: <%= question.avg_grade.to_s%>
-          <span class="slider-label left">1</span>
-          <span class="slider-label right">4</span>
-        </label>
-        <input type="range" class="slider" name="slider" id="slider" value='<%= question.avg_grade%>' min="1" max="4" data-highlight="true" data-mini="true" data-theme="a" data-track-theme="b" disabled/>
+          <label for="slider">Puntaje promedio: <%= question.avg_grade.to_s%></label>
+          <input type="range" class="slider" name="slider" id="slider" value='<%= question.avg_grade%>' min="1" max="4" data-highlight="true" data-mini="true" data-theme="a" data-track-theme="b" disabled/>
       </div>
 <% end %>
+
+
 
 <p>Comentarios: </p>
 <% @comments.each do |comment| %>
