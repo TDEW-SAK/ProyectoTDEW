@@ -1,7 +1,8 @@
 class ResultsController < ApplicationController
 
   def show
-    @teacher = Teacher.all(:conditions => { :id => params[:id] }).first
+    #@teacher = Teacher.all(:conditions => { :id => params[:id] }).first
+    @teacher = Teacher.find(params[:id])
 
     @questions = Evaluation.all(  :select => "items.name, round(avg(evaluation_details.grade),1) as avg_grade",
                               :joins => "JOIN evaluation_details on evaluation_details.evaluation_id = evaluations.id JOIN forms on evaluations.form_id = forms.id JOIN items on items.form_id = forms.id and evaluation_details.item_id = items.id",
