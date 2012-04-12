@@ -1,3 +1,9 @@
 .ui-slider-input {
     display : none !important;
 }
+
+.questions {
+	border-bottom-style:solid;
+	width:70%;
+	border-color:#D8D8D8;
+}
