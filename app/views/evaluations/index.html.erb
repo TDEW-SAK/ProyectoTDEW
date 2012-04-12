@@ -20,7 +20,7 @@
 -->
 <ul data-role="listview" data-inset="true" data-filter="true">
 <% Teacher.all.each do |teacher| %>
-   <li><%= link_to teacher.names + ' ' + teacher.last_name + ' ' + teacher.second_last_name,  new_evaluation_path%></li>
+   <li><%= link_to teacher.names + ' ' + teacher.last_name + ' ' + teacher.second_last_name,  evaluate_path(teacher.id)%></li>
 <% end %>
 </ul>
 

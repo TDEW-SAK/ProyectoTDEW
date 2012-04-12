@@ -1,56 +1,58 @@
-<h1>Nueva Evaluaci&oacuten</h1>
+<%= form_for @evaluation do |e| %>
+  <h1>Nueva Evaluaci&oacuten</h1>
 
-<table>
+  <table>
     <tr>
-        <td><b>Profesor:</b></td> <td>Lennon Shimokawa</td>
-    </tr>
-<!--
-<tr>
-    <td><b>Curso: </b></td>  <td>Investigaci&oacuten Operacional</td>
-</tr>
--->
-    <tr>
-        <td colspan="2">&nbsp;</td>
+      <td><b>Profesor:</b></td> <td><%= @teacher.names + ' ' + @teacher.last_name + ' ' +
+                                      @teacher.second_last_name %></td>
     </tr>
     <tr>
-        <td colspan="2">Por favor responder las siguientes preguntas en una escala del 1 al 5, donde 1 es "Malo" y 5 es "Excelente"</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2">Por favor evaluar los siguientes aspectos de desempeño en una escala del 1 al 4, donde 1 es "Malo" y 4 es "Excelente"</td>
     </tr>
     <tr>
         <td colspan="2">&nbsp;</td>
     </tr>
-</table>
+  </table>
 
-<table>
-   
-<% Item.all.each do |item| %>
-    <tr>
-        <td>
-            <b><%= item.name %></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
-                <input type="radio" name="radio-choice-1" id="radio-mini-1" value="1" />
-                <label for="radio-mini-1">1</label>
+  <table>   
+    <% Item.all.each do |item| %>
+        <tr>
+            <td>
+                <b><%= item.id.to_s + '. ' +  item.name %></b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <%= e.fields_for :evaluation_details do |d| %>
+                <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
+                    <%= d.radio_button(:grade, "1") %>
+                    <%= label_tag(:1, "1") %>
 
-                <input type="radio" name="radio-choice-1" id="radio-mini-2" value="2" />
-                <label for="radio-mini-2">2</label>
+                    <%= d.radio_button(:grade, "2") %>
+                    <%= label_tag(:2, "2") %>
 
-                <input type="radio" name="radio-choice-1" id="radio-mini-3" value="3" />
-                <label for="radio-mini-3">3</label>
+                    <%= d.radio_button(:grade, "3") %>
+                    <%= label_tag(:3, "3") %>
 
-                <input type="radio" name="radio-choice-1" id="radio-mini-4" value="4" />
-                <label for="radio-mini-4">4</label>
+                    <%= d.radio_button(:grade, "4") %>
+                    <%= label_tag(:4, "4") %>
 
-                <input type="radio" name="radio-choice-1" id="radio-mini-5" value="5" checked="checked" />
-                <label for="radio-mini-5">5</label>
-            </fieldset>    
-        </td>
-    </tr>
+                </fieldset>
+              <% end %>
+            </td>
+        </tr>
+    <% end %>
+
+  <tr>
+    <td>
+      <div data-role="fieldcontain">
+          <%= e.text_area :comment %>
+      </div>
+    </td>
+  </tr>
+  </table>
 <% end %>
-</table>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', evaluations_path %>

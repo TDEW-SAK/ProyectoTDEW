@@ -32,12 +32,27 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   # GET /evaluations/new.json
   def new
+#    @teacher    = Teacher.all(:conditions => { :id => params[:teacher_id] }).first
+    @teacher    = Teacher.find(params[:teacher_id])
     @evaluation = Evaluation.new
+    
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @evaluation }
     end
+
+    @ev1 = EvaluationDetail.new
+    @ev2 = EvaluationDetail.new
+    @ev3 = EvaluationDetail.new
+    @ev4 = EvaluationDetail.new
+    @ev5 = EvaluationDetail.new
+
+    @evaluation.evaluationdetails << @ev1
+    @evaluation.evaluationdetails << @ev2
+    @evaluation.evaluationdetails << @ev3
+    @evaluation.evaluationdetails << @ev4
+    @evaluation.evaluationdetails << @ev5
   end
 
   # GET /evaluations/1/edit

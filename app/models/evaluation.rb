@@ -3,4 +3,5 @@ class Evaluation < ActiveRecord::Base
     belongs_to :teacher
     belongs_to :user
     belongs_to :form
+    accepts_nested_attributes_for :evaluation_details
 end
