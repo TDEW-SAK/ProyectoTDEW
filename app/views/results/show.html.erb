@@ -7,21 +7,24 @@
   <h3>
     <%= @teacher.names + ' ' + @teacher.last_name + ' ' + @teacher.second_last_name%>
   </h3>
-  Cantidad de evaluaciones: <%= @teacher.evaluations.count%>
+  Cantidad de evaluaciones: <strong><%= @teacher.evaluations.count%></strong>
 </p>
 </br>
 
 <% @questions.each do |question| %>
-    <p>
-      Pregunta: <%= question.name %>
-    </p>
-        <div data-role="fieldcontain">
-          <label for="slider">Puntaje promedio: <%= question.avg_grade.to_s%></label>
-          <input type="range" class="slider" name="slider" id="slider" value='<%= question.avg_grade%>' min="0" max="4" data-highlight="true" data-mini="true" />
+    <div class="questions">
+      <p>
+        Pregunta: <%= question.name %>
+      </p>
+      <div data-role="fieldcontain">
+        <label for="slider">Puntaje promedio: <strong><%= question.avg_grade.to_s%></strong></label>
+        <input type="range" class="slider" name="slider" id="slider" value='<%= question.avg_grade%>' min="1" max="4" data-highlight="true" data-mini="true" />
 
-          <span class="slider-label left">1</span>
-          <span class="slider-label right">4</span>       
-        </div>
+        <span class="slider-label left">Min:1</span>
+        <span class="slider-label right">Max:4</span>       
+      </div>
+    </div>
+  </br>
 <% end %>
 
 
