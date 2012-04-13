@@ -13,7 +13,7 @@ t4 = Teacher.create(names: 'Luis', last_name: 'Ulfe', second_last_name: 'Carrion
 t5 = Teacher.create(names: 'Ruben', last_name: 'Yong', second_last_name: 'Deza')
 
 f = Form.create(name: 'Evaluacion General')
-i1 = Item.create(name: 'Metodologia de enseñanza', category: 'M')
+i1 = Item.create(name: 'Metodologia de ensenanza', category: 'M')
 i2 = Item.create(name: 'Comunicacion con alumnos', category: 'M')
 i3 = Item.create(name: 'Entrega de notas', category: 'M')
 i4 = Item.create(name: 'Sistema de calificacion', category: 'M')
