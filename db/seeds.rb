@@ -200,6 +200,37 @@ ed25.item = i5
 ed25.evaluation = e5
 ed25.save
 
+e6 = Evaluation.create(comment: 'Ingreso evaluacion presentacion')
+e6.teacher = t2
+e6.form = f
+e6.user = u5
+e6.save
+
+ed26 = EvaluationDetail.create(grade: 1)
+ed26.item = i1
+ed26.evaluation = e6
+ed26.save
+
+ed27 = EvaluationDetail.create(grade: 1)
+ed27.item = i2
+ed27.evaluation = e6
+ed27.save
+
+ed28 = EvaluationDetail.create(grade: 1)
+ed28.item = i3
+ed28.evaluation = e6
+ed28.save
+
+ed29 = EvaluationDetail.create(grade: 1)
+ed29.item = i4
+ed29.evaluation = e6
+ed29.save
+
+ed30 = EvaluationDetail.create(grade: 1)
+ed30.item = i5
+ed30.evaluation = e6
+ed30.save
+
 
 #Fin de agregado LBL
 

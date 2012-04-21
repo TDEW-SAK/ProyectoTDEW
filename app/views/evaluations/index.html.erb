@@ -7,17 +7,6 @@
     <th></th>
     <th></th>
   </tr>
-
-<!--
-<% @evaluations.each do |evaluation| %>
-  <tr>
-    <td><%= evaluation.comment %></td>
-    <td><%= link_to 'Show', evaluation %></td>
-    <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
-    <td><%= link_to 'Destroy', evaluation, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
--->
 <ul data-role="listview" data-inset="true" data-filter="true">
 <% Teacher.all.each do |teacher| %>
    <li><%= link_to teacher.names + ' ' + teacher.last_name + ' ' + teacher.second_last_name,  evaluate_path(teacher.id)%></li>
@@ -25,16 +14,3 @@
 </ul>
 
 </table>
-
-<!--
-  <li><a href="Lennon.html">Lennon Shimokawa</a><span class="ui-li-count">12</span></li>
-  <li><a href="Lgarcia.html">Luis García</a><span class="ui-li-count">5</span></li>
-  <li><a href="Ymotta.html">Yana Motta</a><span class="ui-li-count">7</span></li>
-  <li><a href="Milkito.html">Milkito</a><span class="ui-li-count">175</span></li>
--->
-
-<!--<br /> -->
-
-<!--
-<%= link_to 'New Evaluation', new_evaluation_path %>
--->

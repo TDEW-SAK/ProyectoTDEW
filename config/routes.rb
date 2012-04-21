@@ -17,7 +17,7 @@ EligeTuProfe::Application.routes.draw do
    match '/last_results', :to => 'results#last'
    match '/evaluations', :to => 'results#last'
    match '/evaluate', :to => 'evaluations#index'
-   match 'evaluations/:teacher_id', :to => 'evaluations#new', :as => 'evaluate'
+   match '/evaluate/:teacher_id', :to => 'evaluations#new', :as => 'evaluate'
    match '/evaluations/:evaluation/save', :to => 'evaluations#create', :as => 'save_evaluation'
 
 
