@@ -45,10 +45,13 @@ class EvaluationsController < ApplicationController
     @evaluation.form = Form.first
 
     @evaluation.form.items.all.each do |item|
-      evd = EvaluationDetail.new  
-      evd.item = item
-      @evaluation.evaluation_details << evd
-      evd = nil
+      puts "1"
+      @ed = EvaluationDetail.new
+      @ed.item = item
+      #@evaluation.evaluation_details.build item: item
+      @evaluation.evaluation_details << @ed
+      #@ed.evaluation = @evaluation
+      puts @evaluation.evaluation_details.count.to_s
     end
 
     respond_to do |format|
@@ -66,12 +69,6 @@ class EvaluationsController < ApplicationController
   # POST /evaluations.json
   def create
     @evaluation = Evaluation.new(params[:evaluation])
-
-    @evaluation.save
-
-    @evaluation.evaluation_details.all.each do |detail|
-      detail.save
-    end
 
     respond_to do |format|
       if @evaluation.save

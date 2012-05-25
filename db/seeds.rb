@@ -13,7 +13,7 @@ t4 = Teacher.create(names: 'Luis', last_name: 'Ulfe', second_last_name: 'Carrion
 t5 = Teacher.create(names: 'Ruben', last_name: 'Yong', second_last_name: 'Deza')
 
 f = Form.create(name: 'Evaluacion General')
-i1 = Item.create(name: 'Metodologia de ensenianza', category: 'M')
+i1 = Item.create(name: 'Metodologia de ensenanza', category: 'M')
 i2 = Item.create(name: 'Comunicacion con alumnos', category: 'M')
 i3 = Item.create(name: 'Entrega de notas', category: 'M')
 i4 = Item.create(name: 'Sistema de calificacion', category: 'M')
@@ -199,6 +199,37 @@ ed25 = EvaluationDetail.create(grade: 4)
 ed25.item = i5
 ed25.evaluation = e5
 ed25.save
+
+e6 = Evaluation.create(comment: 'Ingreso evaluacion presentacion')
+e6.teacher = t2
+e6.form = f
+e6.user = u5
+e6.save
+
+ed26 = EvaluationDetail.create(grade: 1)
+ed26.item = i1
+ed26.evaluation = e6
+ed26.save
+
+ed27 = EvaluationDetail.create(grade: 1)
+ed27.item = i2
+ed27.evaluation = e6
+ed27.save
+
+ed28 = EvaluationDetail.create(grade: 1)
+ed28.item = i3
+ed28.evaluation = e6
+ed28.save
+
+ed29 = EvaluationDetail.create(grade: 1)
+ed29.item = i4
+ed29.evaluation = e6
+ed29.save
+
+ed30 = EvaluationDetail.create(grade: 1)
+ed30.item = i5
+ed30.evaluation = e6
+ed30.save
 
 
 #Fin de agregado LBL

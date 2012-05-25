@@ -29,31 +29,29 @@
   </table>
 
   <table>
+    <% puts "Cantidad de detalles" + @evaluation.evaluation_details.count.to_s %>
     
-    <% @evaluation.evaluation_details.each do |edet| %>
+    <% e.fields_for :evaluation_details do |ed_form| %>
         <tr>
             <td>
-                <b><%= edet.item.id.to_s + '. ' +  edet.item.name %></b>
+                <b><%= ed_form.object.item.id.to_s + '. ' +  ed_form.object.item.name %></b>
             </td>
         </tr>
         <tr>
             <td>
-              <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
-                <%= e.fields_for :evaluation_details, edet do |d| %>
-                  
-                      <%= d.radio_button(:grade, "1") %>
-                      <%= d.label(:grade_1, "1") %>
+              <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">                  
+                <%= ed_form.radio_button(:grade, "1") %>
+                <%= ed_form.label(:grade_1, "1") %>
 
-                      <%= d.radio_button(:grade, "2") %>
-                      <%= d.label(:grade_2, "2") %>
+                <%= ed_form.radio_button(:grade, "2") %>
+                <%= ed_form.label(:grade_2, "2") %>
 
-                      <%= d.radio_button(:grade, "3") %>
-                      <%= d.label(:grade_3, "3") %>
+                <%= ed_form.radio_button(:grade, "3") %>
+                <%= ed_form.label(:grade_3, "3") %>
 
-                      <%= d.radio_button(:grade, "4") %>
-                      <%= d.label(:grade_4, "4") %>
-                <% end %>
-                </fieldset>
+                <%= ed_form.radio_button(:grade, "4") %>
+                <%= ed_form.label(:grade_4, "4") %>
+              </fieldset>
             </td>
         </tr>
     <% end %>
